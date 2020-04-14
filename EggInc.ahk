@@ -1,3 +1,8 @@
+/*
+How to use: Replace 15 and 10 in Main() with how many seconds it takes to completely empty and completely fill
+your hatchery, repectively. Then run the script from the command line with the number of times you want to
+repeat the script, or -1 to have it run infinitely
+*/
 StartHatching(NumRepeats, TimeToEmptyS, TimeToFullS) {
    GetHatchReleaseInitialTimesMs(TimeToEmptyS, TimeToFullS, TimeToHatchMs, TimeToReleaseMs, InitialTimeMs)
 
