@@ -1,11 +1,11 @@
 Main() {
-   NumRepeats := HandleCLI()
+   NumRepeats := ParseCLI()
    StartHatching(NumRepeats, 900, 800, 15000)
    PrintEndingMessage(NumRepeats)
    ExitApp
 }
 
-HandleCLI() {
+ParseCLI() {
    if A_Args.Length() > 1 {
       PrintParseError()
    } else if A_Args[1] == "h" {
