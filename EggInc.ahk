@@ -19,9 +19,10 @@ StartHatching(NumRepeats, TimeToEmptyS, TimeToFullS) {
 }
 
 GetHatchReleaseInitialTimesMs(TimeToEmptyS, TimeToFullS, ByRef TimeToHatchMs, ByRef TimeToReleaseMs, ByRef InitialTimeMs) {
-   ; 3% subtracted to hatch to account for delay and 5% as a buffer
+   ; 5% as a buffer, can tinker with Delay (%) to try to get the most performance
+   Delay = 0.0226
    InitialTimeMs := TimeToEmptyS * 0.80 * 1000
-   RemainingTimeMs := TimeToEmptyS * 0.12 * 1000
+   RemainingTimeMs := TimeToEmptyS * 0.15 * 1000
 
    /*
    Math (I can still do algebra)
@@ -32,7 +33,7 @@ GetHatchReleaseInitialTimesMs(TimeToEmptyS, TimeToFullS, ByRef TimeToHatchMs, By
    */
    Ratio := TimeToEmptyS / TimeToFullS
    TimeToReleaseMs := RemainingTimeMs / (Ratio + 1)
-   TimeToHatchMs := RemainingTimeMs - TimeToReleaseMs - (TimeToEmptyS * 0.03 * 1000)
+   TimeToHatchMs := RemainingTimeMs - TimeToReleaseMs - (TimeToEmptyS * Delay * 1000)
 
    return
 }
