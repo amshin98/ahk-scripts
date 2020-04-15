@@ -53,7 +53,7 @@ Main() {
 }
 
 ParseCLI() {
-   if A_Args.Length() > 1 {
+   if A_Args.Length() != 1 {
       PrintParseError()
    } else if A_Args[1] == "h" {
       PrintUsage()
